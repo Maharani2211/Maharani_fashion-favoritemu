@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maharani_fashion 🩷 Hijab & Fashion Muslimah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===== TOP BAR ===== -->
+    <div class="topbar">
+      <button class="hamburger" onclick="toggleSidebar()">☰</button>
+      <div class="brand">Maharani<span>_fashion</span> 🩷</div>
+      <div class="searchwrap">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari produk favoritmu... (mis: pashmina, gamis)"
+          onkeydown="if(event.key==='Enter')doSearch()"
+        />
+        <button onclick="doSearch()">🔍</button>
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛍️<span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+
+    <div class="layout">
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="sidebar" id="sidebar">
+        <h3>Kategori Produk</h3>
+        <ul>
+          <li><a href="#cat-semua" class="cat-link">✨ Semua Produk</a></li>
+          <li><a href="#cat-pashmina" class="cat-link">Pashmina</a></li>
+          <li>
+            <a href="#cat-segiempat" class="cat-link">Hijab Segi Empat</a>
+          </li>
+          <li><a href="#cat-instan" class="cat-link">Hijab Instan</a></li>
+          <li><a href="#cat-abaya" class="cat-link">Abaya</a></li>
+          <li><a href="#cat-gamis" class="cat-link">Gamis</a></li>
+          <li><a href="#cat-tunik" class="cat-link">Tunik</a></li>
+          <li><a href="#cat-inner" class="cat-link">Inner Hijab</a></li>
+          <li><a href="#cat-rok" class="cat-link">Rok Islami</a></li>
+          <li><a href="#cat-aksesoris" class="cat-link">Aksesoris</a></li>
+        </ul>
+      </aside>
+
+      <main class="main">
+        <!-- ===== HERO / SAMBUTAN ===== -->
+        <section class="welcome" id="cat-semua">
+          <h1>Selamat Datang di Maharani_fashion 🩷</h1>
+          <p>
+            Pusat koleksi hijab dan busana muslimah terlengkap dengan kualitas
+            premium dan harga terjangkau.
+          </p>
+          <p>
+            Kami hadir untuk melengkapi penampilan syar'i Anda agar tetap elegan
+            dan nyaman sepanjang hari.
+          </p>
+          <div class="signature">~ Elegant in Simplicity ~</div>
+        </section>
+
+        <!-- ===== HERO BANNER SLIDER ===== -->
+        <section class="hero-slider">
+          <div class="slides-window">
+            <div class="slides-track" id="slidesTrack">
+              <!-- Slide 1 -->
+              <div class="slide" onclick="goToProduct('gamis-premium')">
+                <img
+                  src="https://placehold.co/300x300/d8ad6d/ffffff?text=Gamis+Premium"
+                  alt="Gamis Premium"
+                />
+                <div class="slide-info">
+                  <p class="tag">New Arrival</p>
+                  <h2>Gamis Premium Maharani</h2>
+                  <div class="price">Rp 500.000</div>
+                  <p class="cta">Lihat Detail & Beli Sekarang →</p>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="slide" onclick="goToProduct('pashmina-viscose')">
+                <img
+                  src="https://placehold.co/300x300/e8869f/ffffff?text=Pashmina+Viscose"
+                  alt="Pashmina Viscose"
+                />
+                <div class="slide-info">
+                  <p class="tag">Best Seller</p>
+                  <h2>Pashmina Viscose Soft</h2>
+                  <div class="price">Rp 150.000</div>
+                  <p class="cta">Koleksi Warna Terlengkap →</p>
+                </div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="slide" onclick="goToProduct('abaya')">
+                <img
+                  src="https://placehold.co/300x300/c85c78/ffffff?text=Abaya"
+                  alt="Abaya"
+                />
+                <div class="slide-info">
+                  <p class="tag">Exclusive</p>
+                  <h2>Abaya Turkey Collection</h2>
+                  <div class="price">Rp 350.000</div>
+                  <p class="cta">Cek Koleksi Abaya →</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="slider-arrow arrow-left" onclick="slideMove(-1)">
+            ❮
+          </button>
+          <button class="slider-arrow arrow-right" onclick="slideMove(1)">
+            ❯
+          </button>
+          <div class="slider-dots" id="sliderDots"></div>
+        </section>
+
+        <!-- ===== CATALOG ===== -->
+        <div class="catalog">
+          <h2 class="section-title">Katalog Produk</h2>
+          <p class="section-sub">
+            Pilih produk favoritmu dan tambahkan ke keranjang
+          </p>
+
+          <!-- Pashmina -->
+          <section class="category-block" id="cat-pashmina">
+            <h3>Pashmina</h3>
+            <div class="grid" data-grid="pashmina"></div>
+          </section>
+
+          <!-- Hijab Segi Empat -->
+          <section class="category-block" id="cat-segiempat">
+            <h3>Hijab Segi Empat</h3>
+            <div class="grid" data-grid="segiempat"></div>
+          </section>
+
+          <!-- Hijab Instan -->
+          <section class="category-block" id="cat-instan">
+            <h3>Hijab Instan</h3>
+            <div class="grid" data-grid="instan"></div>
+          </section>
+
+          <!-- Abaya -->
+          <section class="category-block" id="cat-abaya">
+            <h3>Abaya</h3>
+            <div class="grid" data-grid="abaya"></div>
+          </section>
+
+          <!-- Gamis -->
+          <section class="category-block" id="cat-gamis">
+            <h3>Gamis</h3>
+            <div class="grid" data-grid="gamis"></div>
+          </section>
+
+          <!-- Tunik -->
+          <section class="category-block" id="cat-tunik">
+            <h3>Tunik</h3>
+            <div class="grid" data-grid="tunik"></div>
+          </section>
+
+          <!-- Inner Hijab -->
+          <section class="category-block" id="cat-inner">
+            <h3>Inner Hijab</h3>
+            <div class="grid" data-grid="inner"></div>
+          </section>
+
+          <!-- Rok Islami -->
+          <section class="category-block" id="cat-rok">
+            <h3>Rok Islami</h3>
+            <div class="grid" data-grid="rok"></div>
+          </section>
+
+          <!-- Aksesoris -->
+          <section class="category-block" id="cat-aksesoris">
+            <h3>Aksesoris</h3>
+            <div class="grid" data-grid="aksesoris"></div>
+          </section>
+        </div>
+
+        <!-- ===== ORDER FORM ===== -->
+        <section class="order-section" id="order-section">
+          <h2>Formulir Pemesanan</h2>
+          <p class="sub">
+            Silakan isi data diri Anda untuk menyelesaikan pesanan
+          </p>
+
+          <div class="order-grid">
+            <div class="form-group">
+              <label>Nama Lengkap</label>
+              <input
+                type="text"
+                id="ordName"
+                placeholder="Masukkan nama Anda..."
+              />
+            </div>
+            <div class="form-group">
+              <label>Nomor WhatsApp</label>
+              <input
+                type="text"
+                id="ordPhone"
+                placeholder="Contoh: 081234567xxx"
+              />
+            </div>
+            <div class="form-group full">
+              <label>Alamat Lengkap</label>
+              <textarea
+                id="ordAddress"
+                rows="3"
+                placeholder="Masukkan alamat pengiriman lengkap..."
+              ></textarea>
+            </div>
+
+            <div class="form-group full">
+              <label>Ringkasan Pesanan</label>
+              <div class="order-cart-summary" id="orderCartSummary">
+                <!-- Isi otomatis via JS -->
+              </div>
+            </div>
+
+            <div class="form-group full">
+              <label>Metode Pembayaran</label>
+              <div class="payment-options">
+                <div
+                  class="pay-opt"
+                  data-method="Cash"
+                  onclick="selectPayment(this)"
+                >
+                  <div class="logo logo-cash">💵</div>
+                  <span>Cash / COD</span>
+                </div>
+                <div
+                  class="pay-opt"
+                  data-method="QRIS"
+                  onclick="selectPayment(this)"
+                >
+                  <div class="logo logo-qris">QR</div>
+                  <span>QRIS</span>
+                </div>
+                <div
+                  class="pay-opt"
+                  data-method="DANA"
+                  onclick="selectPayment(this)"
+                >
+                  <div class="logo logo-dana">D</div>
+                  <span>DANA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="form-msg" id="formMsg"></p>
+          <button class="submit-btn" onclick="submitOrder()">
+            Konfirmasi Pesanan Sekarang
+          </button>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section class="contact">
+          <h2>Hubungi Kami</h2>
+          <p class="sub">Punya pertanyaan? Kami siap membantu Anda 🩷</p>
+          <div class="contact-grid">
+            <a
+              href="https://wa.me/6283821158065"
+              class="contact-item"
+              target="_blank"
+            >
+              <div class="icon">💬</div>
+              <span>WhatsApp</span>
+            </a>
+            <a
+              href="https://instagram.com/maharani_fashion"
+              class="contact-item"
+              target="_blank"
+            >
+              <div class="icon">📸</div>
+              <span>Instagram</span>
+            </a>
+            <a
+              href="https://shopee.co.id/maharani_fashion"
+              class="contact-item"
+              target="_blank"
+            >
+              <div class="icon">🛒</div>
+              <span>Shopee</span>
+            </a>
+          </div>
+        </section>
+
+        <footer>
+          &copy; 2024 Maharani_fashion. All Rights Reserved. Crafted with 🩷 for
+          Muslimah.
+        </footer>
+      </main>
+    </div>
+
+    <!-- ===== CART PANEL ===== -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-panel" id="cartPanel">
+      <div class="cart-head">
+        <h3>Keranjang Belanja</h3>
+        <button class="cart-close" onclick="toggleCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-foot">
+        <div class="cart-total">
+          <span>Total</span><span id="cartTotal">Rp 0</span>
+        </div>
+        <button class="btn-checkout" onclick="goCheckout()">
+          Checkout Sekarang
+        </button>
+        <button class="btn-reset" onclick="resetCart()">Reset Keranjang</button>
+      </div>
+    </div>
+
+    <!-- ===== PAYMENT MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h3 id="modalTitle">Pembayaran</h3>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
